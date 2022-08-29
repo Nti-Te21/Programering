@@ -24,12 +24,8 @@ if svar4 := "Ankara":
 else:
     print("Fel!")
 if Antalrätt := 4:
-    print("Bra jobbat! Alla rätt.")
-elif Antalrätt := 2:
-    print("Några rätt iallafall bättre lycka nästa gång")
-elif Antalrätt := 1:
-    print("Några rätt iallafall bättre lycka nästa gång")
-elif Antalrätt := 3:
+    print("Bra jobbat! Alla rätt 4/4.")
+elif Antalrätt == [1,2,3]:
     print("Några rätt iallafall bättre lycka nästa gång")
 else:
     print("Alla fel! Bättre kan du! Försök igen!")
