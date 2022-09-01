@@ -1,8 +1,10 @@
+from urllib.parse import non_hierarchical
+
 Antalrätt = 0
 Antalfrågor = 0
 poäng = 0
-name = input("Vad heter du?")
-svårighetsgrad = input("lätt eller svårt?").capitalize()
+name = input("Vad heter du? ")
+svårighetsgrad = input("lätt eller svårt? ").capitalize()
 if svårighetsgrad == "Svårt":
     print("Du har valt Svårt")
     ans1 = input("Vad är Azerbajdzjan huvudstad? ").capitalize()
@@ -35,31 +37,50 @@ if svårighetsgrad == "Svårt":
         poäng -= 1
     if poäng == 5:
         print(f"Bra jobbat {name}! Du fick 5/5 poäng")
-    elif poäng == [1,2,3,4]:
+    elif poäng in [1,2,3,4]:
         print(f"Några poäng iallafall. Bättre lycka nästa gång {name} {poäng}/5 poäng")
+    elif poäng in [0,-1,-2,-3]:
+        print(f"Inte alla fel iallfall {name} prova igen eller gå tillbaks till lätt läge  sålänge")
     else:
-        print(f"")
+        print(f"{name} din idiot gå tillbaka till lätt innan du skämmer ut dig mer ")
 else:
+
     print("Du har valt lätt")
-    svar1 = input("Vad är Sveriges huvudstad? ").capitalize()
+    svar1 = None
+    tries = 0
+    while svar1 != "Stockholm" and tries < 10:
+        svar1 = input("Vad är Sveriges huvudstad? ").capitalize()
+        tries += 1
     if svar1 == "Stockholm":
         print("Rätt!")
         Antalrätt += 1
-    else:
+    else:   
         print("Fel!")
-    svar2 = input("Vad är Norges huvudstad? ").capitalize()
+    svar2 = None
+    tries = 0
+    while svar2 != "Oslo" and tries < 10:
+        svar2 = input("Vad är Norges huvudstad? ").capitalize()
+        tries += 1
     if svar2 == "Oslo":
         print("Rätt!")
         Antalrätt += 1
     else:
       print("Fel!")
-    svar3 = input("Vad är Bulgariens huvudstad? ").capitalize()
+    svar3 = None
+    tries = 0
+    while svar3 != "Sofia" and tries < 10 :
+        svar3 = input("Vad är Bulgariens huvudstad? ").capitalize()
+        tries += 1
     if svar3 == "Sofia":
         print("Rätt!")
         Antalrätt += 1
     else:
      print("Fel!")
-    svar4 = input("Vad är Turkiets huvudstad? ").capitalize()
+    svar4 = None
+    tries = 0
+    while svar4 != "Ankara" and tries < 10:
+        svar4 = input("Vad är Turkiets huvudstad? ").capitalize()
+        tries += 1
     if svar4 == "Ankara":
         print("Rätt!")
         Antalrätt += 1
@@ -71,3 +92,4 @@ else:
         print(f"Några rätt iallafall. Bättre lycka nästa gång {name} {Antalrätt}/4")
     else:
         print(f"Alla fel! Bättre kan du {name}! Försök igen!")
+print("If you want to play again rerun the program")
