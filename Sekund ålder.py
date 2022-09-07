@@ -7,3 +7,4 @@ print (year, month)
 int(monthage)
 secage = monthage*30*24*60*60
 input(f"Visste du att du är {secage} sekunder gammal?")
+print((secage * 299792458 / 1000)/17)

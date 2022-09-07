@@ -65,7 +65,7 @@ else:
         print("Rätt!")
         Antalrätt += 1
     else:
-      print("Fel!")
+        print("Fel!")
     svar3 = None
     tries = 0
     while svar3 != "Sofia" and tries < 10 :
@@ -75,7 +75,7 @@ else:
         print("Rätt!")
         Antalrätt += 1
     else:
-     print("Fel!")
+        print("Fel!")
     svar4 = None
     tries = 0
     while svar4 != "Ankara" and tries < 10:
