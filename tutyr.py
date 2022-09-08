@@ -11,5 +11,4 @@ while True:
         adam.penup
         adam.goto(0,0)
         adam.pendown
-adam.forward(1)
 turtle.done()
