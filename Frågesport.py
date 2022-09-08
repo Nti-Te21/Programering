@@ -92,4 +92,4 @@ else:
         print(f"Några rätt iallafall. Bättre lycka nästa gång {name} {Antalrätt}/4")
     else:
         print(f"Alla fel! Bättre kan du {name}! Försök igen!")
-print("If you want to play again rerun the program")
+print("Om du vill spela igen starta om programet")
