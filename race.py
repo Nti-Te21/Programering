@@ -1,6 +1,6 @@
 import turtle, random
-w = input("who will win? ").lower
-bet = input("whats your bet? ").lower
+hope = input("who will win? ").lower()
+bet = int(input("whats your bet? "))
 adam = turtle.Turtle()
 bart = turtle.Turtle()
 adam.penup
@@ -19,7 +19,8 @@ while win == False:
         win = True
         winner = "bart"
         print("Bart wins")
-if winner == w:
+print(f"you betted on {hope}")
+if hope == winner:
     print(f"You won you now have {bet*2} credits)")
 else:
     print("you lost")
