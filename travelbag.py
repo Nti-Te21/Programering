@@ -1,4 +1,4 @@
-travelbag = ["hej","då"]
+travelbag = []
 
 while True:
 
@@ -19,6 +19,8 @@ while True:
        ta_bort = input("Vad vill du ta bort? ")
        if ta_bort in travelbag:
           travelbag.remove(ta_bort)
+       elif int(ta_bort.isdigit()):
+        travelbag.pop(int(ta_bort)-1)
        else:
         print("inte i resväskan")
     
