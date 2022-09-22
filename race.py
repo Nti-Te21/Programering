@@ -21,7 +21,7 @@ while win == False:
         print("Bart wins")
 print(f"you betted on {hope}")
 if hope == winner:
-    print(f"You won you now have {bet*2} credits)")
+    print(f"You won you now have {bet*2} credits")
 else:
     print("you lost")
 turtle.done()
