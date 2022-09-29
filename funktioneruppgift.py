@@ -14,9 +14,9 @@ best(input("Name "))
 def square(knumer):
     # TODO Returnera talet kvadrerat
     # Ex: 5 in - 25 ut
-    print(knumer**2)
-square(int(input("tal ")))
-
+    return(knumer**2)
+sq_svar = square(int(input("tal ")))
+print(sq_svar)
 def sums(sumeringslista):
     # TODO Returnera summan av a och b
     # Ex: 2, 6 in - 8 ut
@@ -24,8 +24,9 @@ def sums(sumeringslista):
     summa1=0
     for number in numbers:
         summa1 += number
-    print(summa1)
-sums(sumeringslista = input("två tal "))
+    return(summa1)
+svarsum = sums(sumeringslista = input("två tal "))
+print(svarsum)
 
 
 # Nu blir det lite svårare
@@ -38,9 +39,9 @@ def maximum(talen):
     for tal in (talen):
         if int(tal)> max_tal:
             max_tal = int(tal)
-    print(f"det störst talet är {max_tal}")
-maximum(talen = input("en mängd tal ").split(" "))
-
+    return(max_tal)
+max_tal = maximum(talen = input("en mängd tal ").split(" "))
+print(f"det störst talet är {max_tal}")
 
 def palindrom(testord):
     # TODO Returnera True om ord är ett palindrom
@@ -48,10 +49,11 @@ def palindrom(testord):
     # Palindrom är ett ord som stavas likadant baklänges och framlänges.
     jämförelse = testord[::-1]
     if testord == jämförelse:
-        print(f"Testordet {testord} är ett palindrom")
+        return True
     else:
-        print(f"Testordet {testord} är inte ett palindrom utan är {jämförelse} backlänges")
-palindrom(testord = input("skriv ett möjligt palindrom "))
+        return False
+svarpal = palindrom(testord = input("skriv ett möjligt palindrom "))
+print(svarpal)
 
 def primtal():
     # TODO Returnera True om nr är ett primtal, annars returnera false
@@ -62,11 +64,5 @@ def primtal():
             return False
     return True
 prim = primtal()
-def primprint():
-    if prim == True:
-        print(f"talet är ett primtal")
-    else:
-        print(f"talet är inte ett primtal")
-
-primprint()
+print(prim)
 
