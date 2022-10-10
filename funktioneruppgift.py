@@ -52,8 +52,7 @@ def palindrom(testord):
         return True
     else:
         return False
-svarpal = palindrom(testord = input("skriv ett möjligt palindrom "))
-print(svarpal)
+palindrom(testord = input("skriv ett möjligt palindrom "))
 
 def primtal():
     # TODO Returnera True om nr är ett primtal, annars returnera false
