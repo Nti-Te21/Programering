@@ -12,26 +12,13 @@ def def_points (deck):
     points = {}
     for cards in deck:
         card = cards.split(" ")
-        print(card)
         if card[0] == "King" or card[0] == "Queen" or card[0] == "Jack":
             points[cards] = 10
         elif card[0].isdigit():
             points[cards] = int(card[0])
         elif card[0] == "Ace":
             points[cards] = 11
-         
     return points
-"""def points ():
-    points = {}
-    for cards in deck:
-        card = cards.split(" ")
-        print(card)
-        if card[0] == "King" or card[0]  == "Queen" or card[0] == "Jack":
-            print("Updating")
-            points[cards] = 10
-        
-    print(points)      
-points()"""
 def deposit():
     while True:
         deposit = input("How much do you want to deposit? ")
@@ -59,8 +46,6 @@ def main():
     user=[]
     shuffel_deck(deck)
     first_deal(deck, dealer, user)
-    print("5"+"7", "a bit of a break\n\n\n\n")
-    print(card_points)
     dealer_points = card_points[dealer[1]]
     user_points = card_points[user[0]] + card_points[user[1]]
     print(f"\nThe dealer has {dealer[1]} and a hidden card Points: {dealer_points}. \n\nYou have a {', and a '.join(user)} Points: {user_points} \n")
