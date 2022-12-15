@@ -45,12 +45,14 @@ def deposit():
             print("Deposite must be a number!")
             continue
 # The user and dealer recive thier cards
+
 def deal(deck, dealer, user):
     for _ in range(2):
         card_1 = deck.pop(0)
         dealer.append(card_1)
         card_2 = deck.pop(0)
         user.append(card_2)
+
 # As by blackjack rules a card with a value of "Ace" can give both 11 and 1 point, 
 # it must be known what the requierments are for these two diffrent states 
 # Then this function checks if the point value of the ace card should be 1 or 11
@@ -166,7 +168,7 @@ def main():
 # Checks if the user has not recived a blackjack but more than 20 points on first deal
 # this meaning doubel aces wich if true results in the "ace_value_user" running to ensure the correct amount of points is given
         if user_points != "Blackjack!" and user_points > 20:
-            user_points = ace_value_user(user, user_points)
+            user_points = ace_value_user(user, user_points, ace_user_test)
 
 # The while loop covers all of the players actions and thier results after the cards have been dealt         
         while True:
@@ -182,8 +184,9 @@ def main():
                         print("Bust")
                         user_state = "lose"
                     break
+                
 # Asks the user what they want to do and saves its value
-                choice = input("1. Hit 2. Stand 3. Double down \n").capitalize()
+                choice = input("1. Hit 2. Stand 3. Double down\n").capitalize()
 
 # Deals the user a new card and adds it's points to the user point total while making sure the point value is correct                
                 if choice == "1" or choice == "Hit":
@@ -199,10 +202,9 @@ def main():
                 elif choice == "2" or choice == "Stand":
                     break
 
-# Doubles the bet value and hits once to then immideatly giving the turn over to the dealer
                 elif choice == "3" or choice == "Double down":
 # Controls one cant bet more than one has in thier balance through doubleing down
-                    
+# Doubles the bet value and hits once to then immideatly giving the turn over to the dealer                    
                     if bet*2 > balance:
                         print("You can't double down if the double is more than your balance")
                         continue
@@ -226,14 +228,13 @@ def main():
                     break
                 else:
                     print("Please choose a defined value")
-
 # Totals the value of the dealears hand giving it's true point value as one card is no longer hidden            
+            
             dealer_points += card_points[dealer[-1]]
 
 # If the dealer recived a natural blackjack imidiatly thier points are updatet acordingly         
             if dealer_points == 21:
                 dealer_points = "Blackjack!"
-                break
             
             print(f"\nThe dealer has a {', and a '.join(dealer)} Points: {dealer_points}. \n\nYou have a {', and a '.join(user)} Points: {user_points} \n")
 
@@ -247,7 +248,7 @@ def main():
                     break
                 elif user_points == "Blackjack!":
                     break
-                elif user_points >= 21:
+                elif user_points > 21:
                     break
 # the dealers hits and if nececarry the "ace_value_dealer" function is called so the appropriat amount of points is recived
                 else:
@@ -258,7 +259,8 @@ def main():
                         dealer_points -= 10
                         ace_dealer_test = 1
                 print(f"\nThe dealer has a {', and a '.join(dealer)} Points: {dealer_points}. \n\nYou have a {', and a '.join(user)} Points: {user_points} \n")
-
+            
+    
 # Checks if thier has been a draw in blackjack terms a push resulting changing the "user_state" to "push"
             if user_points == dealer_points:
                 print("Push!")
@@ -280,30 +282,31 @@ def main():
                 print("You Win!")
                 user_state = "win"
 
-# Checks if the user has lost and if so changes the "user_state to "win"
+# Checks if the user has lost and if so changes the "user_state" to "lose"
             elif dealer_points > user_points and dealer_points <= 21 or user_points > 21:
                 print("You Lose")
                 user_state = "lose"
 
-# ..??                
+# Checks if the user has won and if so gives the player thier winnings and tells them about it                
             if user_state == "win":
                 balance += bet
                 print(f"You won {bet} you now have ${balance} in your account")
                 break
-# ..??
+# Cecks if there is a tie and tells the user
             elif user_state == "push":
-                balance += bet
                 print("You drawed with the dealer")
-# ..??      
+                break
+# Check if the user won by natural blackjack and then rewards the player with an increased amount from the bet      
             elif user_state == "blackjack win":
                 balance += int(round(bet*1.5, 1))
-                print(f"You won {int(round(bet*1.5,1))} by blackjack you now have ${balance} in your account")
-# ..??
+                print(f"You won ${int(round(bet*1.5))} by blackjack you now have ${balance} in your account")
+                break
+# Checks if the user has lost and if so removes the bet from thier balance
             elif user_state == "lose":
                 balance -= bet
                 print(f"You lost ${bet} you now have ${balance} in your account")
-                break
-# Checks if there has been a witdraw and then the appropriat steps for the circumstances of the witdraw   
+                break        
+# Checks if there has been a witdraw and then the appropriat steps for the circumstances of the witdraw    
     if withdraw_state == False:
         if balance > initial_balance:
             print(f"You witdrew your balance of ${balance} for a proft of ${balance-initial_balance}")
