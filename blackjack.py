@@ -63,7 +63,7 @@ def ace_value_user(user, user_points, ace_user_test):
         for index, card in enumerate(user):
             user_card_type = user[index].split()
             if user_card_type[0] == "Ace":
-# This makes sure the function dosent keep running lowering the value belove it's intended value      
+# This makes sure the function dosent keep running lowering the value below it's intended value      
                 ace_user_test += 1
                 return True                
 # These two else statements make sure the original point value is returned if the function does not give a result to prevent errors encountering None
@@ -298,8 +298,8 @@ def main():
                 break
 # Check if the user won by natural blackjack and then rewards the player with an increased amount from the bet      
             elif user_state == "blackjack win":
-                balance += int(round(bet*1.5, 1))
-                print(f"You won ${int(round(bet*1.5))} by blackjack you now have ${balance} in your account")
+                balance += int(round(bet*1.5, 0))
+                print(f"You won ${int(round(bet*1.5, 0))} by blackjack you now have ${balance} in your account")
                 break
 # Checks if the user has lost and if so removes the bet from thier balance
             elif user_state == "lose":
